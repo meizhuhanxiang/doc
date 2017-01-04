@@ -21,9 +21,9 @@
 	/api/commodity/index
 	
 ###### 请求参数
-{
-  "commodity_id": 1           #商品id
-}
+	{
+  		"commodity_id": 1           #商品id
+	}
 
 ###### 返回
 	{
