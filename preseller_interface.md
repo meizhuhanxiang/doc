@@ -74,7 +74,7 @@
 
 	{
   		"commodity_id": 1,              #商品id， 必填项
-  		"select_options_ids": [1,4,7],  #选中的属性选项id列表， 可选项
+  		"selected_options_ids": [1,4,7],  #选中的属性选项id列表， 可选项
   		"count":5                       #选择商品数量， 可选项
 	}
 	
