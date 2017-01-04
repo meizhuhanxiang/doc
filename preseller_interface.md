@@ -1,7 +1,7 @@
 # 预售系统服务端接口文档
 ### 前置说明：
 
-1、所有请求全部统一采用post方式，所有参数都以json的方式发送，所有的结果都以json的方式返回
+1、所有请求全部统一采用post方式，所以参数都以json的方式发送，所有的结果都以json的方式返回
 
 2、所有的返回json都为如下格式：
 
@@ -22,7 +22,7 @@
 	
 ###### 请求参数
 	{
-  		"commodity_id": 1           #商品id
+	  "commodity_id": 1           #商品id
 	}
 
 ###### 返回
@@ -74,7 +74,7 @@
 
 	{
   		"commodity_id": 1,              #商品id， 必填项
-  		"selected_options_ids": [1,4,7],  #选中的属性选项id列表， 可选项
+  		"selected_option_ids": [1,4,7],  #选中的属性选项id列表， 可选项
   		"count":5                       #选择商品数量， 可选项
 	}
 	
@@ -193,3 +193,260 @@
     },
     "code":0
 	}
+
+##### 加入购物车
+###### 请求url:
+	/api/cart/add
+
+###### 请求参数
+	{
+	  "commodity_id": 1,
+	  "selected_option_ids": [1,4,7],
+	  "count":5
+	}
+###### 返回
+	{"msg": "success", "res": null, "code": 0}
+	
+##### 获取购物车中订单
+###### 请求url:
+	/api/cart/get
+
+###### 请求参数
+	{
+		"order_ids":[1, 2] #订单id,非必填项, 若不填返回所以购物车信息
+	}
+###### 返回
+	{
+    "msg":"success",
+    "res":{
+        "total_price":1090,
+        "orders":[
+            {
+                "count":5,
+                "order_no":"73e5b3a6-d1ce-11e6-9aed-a45e60",
+                "order_id":1,
+                "price":545,
+                "commodity_id":1,
+                "options":[
+                    {
+                        "option_name":"black",
+                        "option_id":1,
+                        "cn_attr_name":"颜色",
+                        "attr_name":"color",
+                        "cn_option_name":"黑色"
+                    },
+                    {
+                        "option_name":"l",
+                        "option_id":5,
+                        "cn_attr_name":"大小",
+                        "attr_name":"size",
+                        "cn_option_name":"L"
+                    },
+                    {
+                        "option_name":"cotton",
+                        "option_id":7,
+                        "cn_attr_name":"材质",
+                        "attr_name":"texture",
+                        "cn_option_name":"棉"
+                    }
+                ],
+                "commodity_title":"G-STEPS卫衣预售"
+            },
+            {
+                "count":5,
+                "order_no":"8bc8df66-d1ce-11e6-8076-a45e60",
+                "order_id":2,
+                "price":545,
+                "commodity_id":1,
+                "options":[
+                    {
+                        "option_name":"black",
+                        "option_id":1,
+                        "cn_attr_name":"颜色",
+                        "attr_name":"color",
+                        "cn_option_name":"黑色"
+                    },
+                    {
+                        "option_name":"l",
+                        "option_id":5,
+                        "cn_attr_name":"大小",
+                        "attr_name":"size",
+                        "cn_option_name":"L"
+                    },
+                    {
+                        "option_name":"cotton",
+                        "option_id":7,
+                        "cn_attr_name":"材质",
+                        "attr_name":"texture",
+                        "cn_option_name":"棉"
+                    }
+                ],
+                "commodity_title":"G-STEPS卫衣预售"
+            }
+        ]
+    },
+    "code":0
+	}
+
+##### 修改购物车信息
+###### 请求url:
+	/api/cart/modify
+
+###### 请求参数
+	{
+		"order_id":1,
+		"selected_option_ids":[1, 5, 7],
+		"count":4
+	}
+###### 返回
+	{"msg": "success", "res": null, "code": 0}
+	
+
+##### 删除购物车订单
+###### 请求url:
+	/api/cart/delete
+
+###### 请求参数
+	{
+		"order_ids":[1]
+	}
+###### 返回
+	{"msg": "success", "res": null, "code": 0}
+	
+
+#####获取省市县三级
+###### 请求url:
+	/api/address/city3level
+
+###### 请求参数
+	{
+		"id":1
+	}
+###### 返回
+	{
+    "msg":"success",
+    "res":[
+        {
+            "first_letter":"B",
+            "code":"110100",
+            "id":35,
+            "name":"北京市",
+            "level":1
+        },
+        {
+            "first_letter":"B",
+            "code":"110200",
+            "id":36,
+            "name":"北京县",
+            "level":1
+        }
+    ],
+    "code":0
+	}
+
+##### 添加收货地址
+###### 请求url:
+	/api/address/add
+
+###### 请求参数
+	{
+	    "name":"家",
+	    "country":"中国",
+	    "province":"北京市",
+	    "municipality":"北京市",
+	    "region":"海淀区",
+	    "address":"建清园",
+	    "phone":"15210828699",
+	    "default":true
+	}
+###### 返回
+	{"msg": "success", "res": null, "code": 0}
+	
+##### 获取所有收货地址
+###### 请求url:
+	/api/address/all
+
+###### 请求参数
+	无
+###### 返回
+	{
+    "msg":"success",
+    "res":{
+        "default":{                     #默认收获地址
+            "province":"北京市",
+            "name":"家",
+            "default":true,
+            "country":"中国",
+            "region":"海淀区",
+            "municipality":"北京市",
+            "phone":2147483647
+        },
+        "other":[
+            {
+                "province":"河北省",
+                "name":"家",
+                "default":false,
+                "country":"中国",
+                "region":"平乡县",
+                "municipality":"邢台市",
+                "phone":2147483647
+            },
+            {
+                "province":"北京市",
+                "name":"家",
+                "default":false,
+                "country":"中国",
+                "region":"海淀区",
+                "municipality":"北京市",
+                "phone":2147483647
+            },
+            {
+                "province":"北京市",
+                "name":"家",
+                "default":false,
+                "country":"中国",
+                "region":"海淀区",
+                "municipality":"北京市",
+                "phone":2147483647
+            }
+        ]
+    },
+    "code":0
+	}
+	
+##### 根据id列表获取收货地址
+###### 请求url:
+	/api/address/get
+
+###### 请求参数
+	{
+		"address_ids":[1]
+	}
+###### 返回
+	{
+    "msg":"success",
+    "res":[
+        {
+            "province":"河北省",
+            "phone":2147483647,
+            "name":"家",
+            "default":false,
+            "country":"中国",
+            "region":"平乡县",
+            "municipality":"邢台市",
+            "id":1
+        }
+    ],
+    "code":0
+	}
+	
+##### 根据id删除收货地址
+###### 请求url:
+	/api/address/delete
+
+###### 请求参数
+	{
+		"address_id":1
+	}
+###### 返回
+	{"msg": "success", "res": null, "code": 0}
