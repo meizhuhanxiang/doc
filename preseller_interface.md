@@ -458,6 +458,17 @@
 ###### 返回
 	{"msg": "success", "res": null, "code": 0}
 
+##### 根据id修改是否是默认收货地址
+###### 请求url:
+	/api/address/default
+
+###### 请求参数
+
+	{
+	    "address_id":5           #要设置为默认的address_id
+	}
+###### 返回
+	{"msg": "success", "res": null, "code": 0}
 
 ##### 根据id删除收货地址
 ###### 请求url:
