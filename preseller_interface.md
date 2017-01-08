@@ -372,42 +372,39 @@
 	{
     "msg":"success",
     "res":{
-        "default":{                     #默认收获地址
+        "default":{
             "province":"北京市",
+            "phone":2147483647,
             "name":"家",
+            "address":"建清园",           #详细地址
             "default":true,
             "country":"中国",
             "region":"海淀区",
             "municipality":"北京市",
-            "phone":2147483647
+            "id":5                       #地址id
         },
         "other":[
             {
-                "province":"河北省",
-                "name":"家",
-                "default":false,
-                "country":"中国",
-                "region":"平乡县",
-                "municipality":"邢台市",
-                "phone":2147483647
-            },
-            {
                 "province":"北京市",
+                "phone":2147483647,
                 "name":"家",
+                "address":"建清园",
                 "default":false,
                 "country":"中国",
                 "region":"海淀区",
                 "municipality":"北京市",
-                "phone":2147483647
+                "id":3
             },
             {
                 "province":"北京市",
+                "phone":2147483647,
                 "name":"家",
+                "address":"建清园",
                 "default":false,
                 "country":"中国",
                 "region":"海淀区",
                 "municipality":"北京市",
-                "phone":2147483647
+                "id":4
             }
         ]
     },
@@ -427,14 +424,15 @@
     "msg":"success",
     "res":[
         {
-            "province":"河北省",
+            "province":"北京市",
             "phone":2147483647,
             "name":"家",
-            "default":false,
+            "address":"建清园",         #详细地址
+            "default":true,
             "country":"中国",
-            "region":"平乡县",
-            "municipality":"邢台市",
-            "id":1
+            "region":"海淀区",
+            "municipality":"北京市",
+            "id":5
         }
     ],
     "code":0
