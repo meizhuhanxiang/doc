@@ -437,7 +437,28 @@
     ],
     "code":0
 	}
-	
+
+##### 根据id修改收货地址
+###### 请求url:
+	/api/address/modify
+
+###### 请求参数
+
+	{
+	    "province":"北京市",
+	    "phone":1234,
+	    "name":"家",
+	    "address":"建清园",
+	    "default":true,
+	    "country":"中国",
+	    "region":"海淀区",
+	    "municipality":"北京市",
+	    "address_id":5           #要修改的address_id
+	}
+###### 返回
+	{"msg": "success", "res": null, "code": 0}
+
+
 ##### 根据id删除收货地址
 ###### 请求url:
 	/api/address/delete
