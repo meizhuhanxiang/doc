@@ -61,7 +61,14 @@
         "satisfy_count":80,
         "commodity_id":"1",
         "sold_count":50,
-        "navigation":"/instatic/preseller/img/commodity/1/navigation.png"
+        "navigation":"/instatic/preseller/img/commodity/1/navigation.png",
+        "detail":[
+            "/instatic/preseller/img/commodity/1/detail/0.jpg",
+            "/instatic/preseller/img/commodity/1/detail/1.jpg",
+            "/instatic/preseller/img/commodity/1/detail/2.jpg",
+            "/instatic/preseller/img/commodity/1/detail/3.jpg",
+            "/instatic/preseller/img/commodity/1/detail/4.jpg"
+        ]    #商品详情图片列表，按顺序展示即可
     },
     "code":0
 	}
@@ -496,5 +503,85 @@
 	    "res":{
 	        "freight":5    #运费
 	    },
+	    "code":0
+	}
+	
+##### 订单状态查询
+###### 请求url:
+	/api/order/status
+
+###### 请求参数
+	{
+		"status":2 
+	}
+	
+	说明：
+	STATUS_CART = 1						#购物车
+	STATUS_WAIT_PAY = 2        #待支付
+	STATUS_WAIT_SEND = 3		#待发货
+	STATUS_WAIT_RECEIVE = 4		#待收货
+	STATUS_COMPLETE = 5			#订单确认完成
+	STATUS_CLOSE = 6						#订单关闭
+	STATUS_ALL = 7				#查询全部
+###### 返回
+	{
+	    "msg":"success",
+	    "res":{
+	        "orders":[
+	            {
+	                "status":3, #订单状态
+	                "address_id":53,  #地址id
+	                "order_no":"cda4139ce2fe11e696d4fa163ec98286",
+	                "order_id":10, #订单id
+	                "price":0.01,  #付款金额
+	                "presell_count":100,  #预售总量
+	                "satisfy_count":80,	#满足多少件发货
+	                "sold_count":1,  		#当前已经卖出的数量
+	                "stop_sell":false,   #是否停止售卖该商品
+	                "count":1,  #购买数量
+	                "options":[
+	                    {
+	                        "option_name":"black",
+	                        "option_id":1,
+	                        "cn_attr_name":"颜色",
+	                        "attr_name":"color",
+	                        "cn_option_name":"黑色"
+	                    },
+	                    {
+	                        "option_name":"l",
+	                        "option_id":5,
+	                        "cn_attr_name":"大小",
+	                        "attr_name":"size",
+	                        "cn_option_name":"L"
+	                    },
+	                    {
+	                        "option_name":"silk",
+	                        "option_id":8,
+	                        "cn_attr_name":"材质",
+	                        "attr_name":"texture",
+	                        "cn_option_name":"丝绸"
+	                    }
+	                ],
+	                "commodity_id":1,
+	                "thumbnail":"/instatic/preseller/img/commodity/1/attribute/black.jpg",
+	                "commodity_title":"G-STEPS卫衣预售"
+	            }
+	        ]
+	    },
+	    "code":0
+	}
+	
+##### 删除订单
+###### 请求url:
+	/api/order/delete
+
+###### 请求参数
+	{
+		"order_ids":[10]
+	}
+###### 返回
+	{
+	    "msg":"success",
+	    "res":null,
 	    "code":0
 	}
