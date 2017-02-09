@@ -201,6 +201,44 @@
     "code":0
 	}
 
+##### 商品预售规则
+###### 请求url:
+	/api/commodity/rule
+
+###### 请求参数
+	{
+	  "commodity_id": 1
+	}
+###### 返回
+	{
+	    "msg":"success",
+	    "res":{
+	        "detail":"/instatic/preseller/img/commodity/1/rule.jpg"
+	    },
+	    "code":0
+	}
+	
+##### 商品发布方
+###### 请求url:
+	/api/commodity/publisher
+
+###### 请求参数
+	{
+	  "commodity_id": 1
+	}
+###### 返回
+	{
+	    "msg":"success",
+	    "res":{
+	        "detail":"/instatic/preseller/img/commodity/1/publisher.jpg"
+	    },
+	    "code":0
+	}
+
+
+
+
+
 ##### 加入购物车
 ###### 请求url:
 	/api/cart/add
