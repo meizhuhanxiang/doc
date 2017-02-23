@@ -555,12 +555,13 @@
 	
 	说明：
 	STATUS_CART = 1						#购物车
-	STATUS_WAIT_PAY = 2        #待支付
-	STATUS_WAIT_SEND = 3		#待发货
-	STATUS_WAIT_RECEIVE = 4		#待收货
-	STATUS_COMPLETE = 5			#订单确认完成
-	STATUS_CLOSE = 6						#订单关闭
-	STATUS_ALL = 7				#查询全部
+	STATUS_ORDER_IMMEDIATELY = 2     #要立即购买的
+	STATUS_WAIT_PAY = 3        #待支付
+	STATUS_WAIT_SEND = 4		#待发货
+	STATUS_WAIT_RECEIVE = 5		#待收货
+	STATUS_COMPLETE = 6			#订单确认完成
+	STATUS_CLOSE = 7						#订单关闭
+	STATUS_ALL = 8				#查询全部
 ###### 返回
 	{
 	    "msg":"success",
