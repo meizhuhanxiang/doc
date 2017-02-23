@@ -259,7 +259,7 @@
 ###### 请求参数
 	{
 		"order_ids":[1, 2] #订单id,非必填项, 若不填返回所以购物车信息		
-		"ignore":true    #取值true/false, 非必填项，若没该key, 默认为false, 当ignore为true的时候, 可以获取立即购买的订单的信息
+		"immediately":true    #取值true/false, 非必填项，若没该key, 默认为false, 当immediately为true的时候, 可以获取立即购买的订单的信息
 	}
 ###### 返回
 	{
