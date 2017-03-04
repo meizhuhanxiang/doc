@@ -625,3 +625,42 @@
 	    "res":null,
 	    "code":0
 	}
+	
+##### 添加推荐
+###### 请求url:
+	/api/recommend/add
+
+###### 请求参数
+	{
+	  "commodity_id": 1, 
+	  "content":"推荐的内容"
+	}
+###### 返回
+	{
+	    "msg":"success",
+	    "res":null,
+	    "code":0
+	}
+	
+##### 获取商品推荐推荐
+###### 请求url:
+	/api/recommend/get
+
+###### 请求参数
+	{
+	  "commodity_id": 1
+	}
+###### 返回
+	{
+	    "msg":"success",
+	    "res":[
+	        {
+	            "profile":"http://xxx.png",
+	            "content":"衣服真好看，太实惠了，嘿嘿",
+	            "job":"前端工程师",
+	            "name":"董哲",
+	            "is_v":1
+	        }
+	    ],
+	    "code":0
+	}
